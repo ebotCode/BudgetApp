@@ -11,7 +11,7 @@ import GithubIcon from '../CustomIcons/GithubIcon';
 const styles = theme => ({
     appBar:{
         position: 'relative',
-        background:  'linear-gradient(to right,rgba(249,107,142,1),rgba(218,103,230,1),rgba(130,125,253,1))'
+        background:  'linear-gradient(to right,#141e30 , #243b55)'
         
     },
     grow: {
@@ -19,8 +19,10 @@ const styles = theme => ({
       },    
 });
 
-
+// 'linear-gradient(to right,#000428 , #004e92)'
+// 'linear-gradient(to right,rgba(249,107,142,1),rgba(218,103,230,1),rgba(130,125,253,1))'
 // 'linear-gradient(to right bottom, #430089, #82ffa1)'
+
 const navbar = (props) => {
     const {classes} = props; 
     
