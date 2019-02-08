@@ -3,7 +3,6 @@ import BudgetSummary from '../BudgetSummary/BudgetSummary'
 import BudgetControls from '../BudgetControls/BudgetControls';
 import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Graph from '../Graph/Graph';
 
 const styles = theme => ({
     layout:{

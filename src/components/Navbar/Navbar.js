@@ -1,7 +1,7 @@
 import React from 'react'; 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { Typography, Grid } from '@material-ui/core';
+import { Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles'
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -33,7 +33,7 @@ const navbar = (props) => {
 
             <Tooltip title="view source code" aria-label="view source code">
             <IconButton
-                    href="https://www.google.com"
+                    href="https://github.com/ebotCode/BudgetApp"
                   aria-owns={true ? 'menu-appbar' : undefined}
                   aria-haspopup="true"
                   color="inherit">

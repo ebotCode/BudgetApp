@@ -4,4 +4,4 @@ Authors:
 * [Ololade Oladoyin](https://github.com/Oladoyin)
 * Me 
 
-Checkout @ 
+Checkout the live demo @ 

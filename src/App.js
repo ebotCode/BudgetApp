@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Layout from './components/Layout/Layout';
 import Navbar from './components/Navbar/Navbar'
 import BudgetBuilder from './components/BudgetBuilder/BudgetBuilder'
 import { Grid } from '@material-ui/core';
