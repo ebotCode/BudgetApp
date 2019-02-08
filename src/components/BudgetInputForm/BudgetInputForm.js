@@ -16,28 +16,6 @@ const styles = theme => ({
     },
   });
 
-const AmountAndDescriptionInputComponent  = props =>{
-return (
-        <Grid style={{padding:5}} container direction="row" spacing={8} alignContent="center" alignItems="center">
-            <Grid  style={{}} item xs={12} md={6}>
-                <TextField     
-                    label="Description" 
-                    fullWidth                      
-                    onChange={props.onDescriptionChange}
-                    margin="normal"
-                    variant="outlined"/>
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <TextField
-                    fullWidth
-                    label="Amount"                       
-                    onChange={props.onAmountChange}
-                    margin="normal"
-                    variant="outlined"/>                            
-                    {/* <input onChange={this.onDescriptionChange} placeholder="Description"/>  <input onChange={this.onAmountChange} placeholder="0.00"/> */}
-            </Grid>            
-        </Grid>);    
-}
 
 class BudgetInputForm extends Component {
 
@@ -45,6 +23,17 @@ class BudgetInputForm extends Component {
         description:"",
         amount:0.0,
         add_item:false,
+    }
+    descriptionInputRef = null;
+    amountInputRef = null;
+
+    resetFields = () =>{
+       if (this.descriptionInputRef !== null){
+           this.descriptionInputRef.value="";
+       }
+       if (this.amountInputRef !== null){
+           this.amountInputRef.value="";
+       }
     }
 
     onDescriptionChange = (event) => {        
@@ -62,6 +51,7 @@ class BudgetInputForm extends Component {
         return null; 
     }
 
+
     validateDescription = (description) => {
         if (description.length > 0){
             return description; 
@@ -78,6 +68,8 @@ class BudgetInputForm extends Component {
                     {description:this.state.description, 
                     amount: this.state.amount,
                     });
+                // reset the description and amount field
+                this.resetFields();
             }      
         }
         this.setState((prevstate)=>{
@@ -97,12 +89,30 @@ class BudgetInputForm extends Component {
     render(){
         let entry_components = null; 
         let cancel_button = null; 
-        const {classes} = this.props; 
+        const {classes} = this.props;       
 
         if (this.state.add_item){
-            entry_components = <AmountAndDescriptionInputComponent 
-                                onDescriptionChange={this.onDescriptionChange}
-                                onAmountChange={this.onAmountChange}/>
+            entry_components = (<Grid style={{padding:5}} container direction="row" spacing={8} alignContent="center" alignItems="center">
+            <Grid  style={{}} item xs={12} md={6}>
+                <TextField   
+                    inputRef ={(el) => {this.descriptionInputRef = el}  }
+                    label="Description" 
+                    fullWidth                      
+                    onChange={this.onDescriptionChange}
+                    margin="normal"
+                    variant="outlined"/>
+            </Grid>
+            <Grid item xs={12} md={6}>
+                <TextField
+                    inputRef={(el) => {this.amountInputRef = el}  }
+                    fullWidth
+                    label="Amount"                       
+                    onChange={this.onAmountChange}
+                    margin="normal"
+                    variant="outlined"/>                            
+                    {/* <input onChange={this.onDescriptionChange} placeholder="Description"/>  <input onChange={this.onAmountChange} placeholder="0.00"/> */}
+            </Grid>            
+        </Grid>); 
 
             cancel_button = (<Fab variant="extended" size="medium"
                                 aria-label="Add"

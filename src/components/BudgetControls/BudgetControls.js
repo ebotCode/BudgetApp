@@ -33,7 +33,7 @@ const controls = (props) => {
     <Paper className={classes.layout}>     
         <Grid style={{}} container spacing={40} 
                     direction="row"
-                    alignItems="center">
+                    alignItems="flex-start">
             <Grid style={{}} item xs={12} sm={12} md={6} lg={6}  >
                 <BudgetInputForm title="Money In" 
                 entries={props.incomeEntries} 
